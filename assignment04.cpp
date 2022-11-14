@@ -12,7 +12,7 @@ string GetCreditCard() {
 	string billAddress = ""; //Billing Address
     int expiryMonthCC = 0;
 	int expiryYearCC = 0;
-	int cvsCC = 0;
+	string cvsCC = "";
 
     cout << "Please enter your credit card details: First, Name on Card. " << endl;
     cin.ignore();
@@ -62,6 +62,16 @@ string GetCreditCard() {
     	    }
     cout << "Please input CVS Number " << endl;
     cin >> cvsCC;
+    bool numberCvsflag = false;
+    		bool cvsalldigits = false;
+    		cvsalldigits = (isdigit(cvsCC[0]), (cvsCC[1]), (cvsCC[2]));
+    		numberCvsflag = (cvsCC.length() == 4 && cvsalldigits);
+    		    if (!numberCvsflag == true){
+    		    	cout << "Card number valid!" << endl;
+    		    }
+    		    else {
+    		    	cout << "Invalid cvs number." << endl;
+    		    }
     cout << "Please enter a billing address. " << endl;
     cin >> billAddress;
     if(billAddress.size() > 4 && billAddress.size() < 8) {
